@@ -27,41 +27,15 @@ import java.io.*;
 <span class="nc" id="L27">        System.out.print(&quot;Input a symbol to result connection: &quot;);</span>
 <span class="nc" id="L28">        result_symbol = sep.next();</span>
 <span class="nc bnc" id="L29" title="All 2 branches missed.">        if (result_symbol.length() != 1){System.exit(0);}</span>
-//        symbol = sep.next();
-//
-//        while(symbol.length()!= 1){
-//            System.out.println(&quot;Enter 1 symbol&quot;);
-//            symbol = sep.next();
-//        }
-//        if (symbol.length() == 1) {
-//            symb = symbol.charAt(0);
-//        }
-//
-//        System.out.println(&quot;Input result file path: &quot;);
-//        result_file_name = sep.next();
-//        File file_2 = new File(result_file_name);
-//        if( !file_2.isFile()){
-//            System.out.print(&quot;Error! File not found!&quot;);
-//            System.exit(0);
-//        }
-//
-//        System.out.print(&quot;Input a symbol to result connection: &quot;);
-//        result_symbol = sep.next();
-//        while(result_symbol.length()!=1){
-//            System.out.println(&quot;Enter 1 symbol&quot;);
-//            result_symbol = sep.next();
-//        }
-//        if (result_symbol.length() == 1) {
-//            end_symb = result_symbol.charAt(0);
-//        }
-<span class="nc" id="L57">        Functional function = new Functional();</span>
-<span class="nc" id="L58">        function.setFile_name(file_name);</span>
-<span class="nc" id="L59">        function.setResult_file_name(result_file_name);</span>
-<span class="nc" id="L60">        function.setSymb(symb);</span>
-<span class="nc" id="L61">        function.setResult_symbol(result_symbol);</span>
-<span class="nc" id="L62">        file_lines = function.OpenAndReadFile();</span>
-<span class="nc" id="L63">        result = function.Schitalka(file_lines);</span>
-<span class="nc" id="L64">        function.WriteAndCloseFile(result);</span>
-<span class="nc" id="L65">    }</span>
+
+<span class="nc" id="L31">        Functional function = new Functional();</span>
+<span class="nc" id="L32">        function.setFile_name(file_name);</span>
+<span class="nc" id="L33">        function.setResult_file_name(result_file_name);</span>
+<span class="nc" id="L34">        function.setSymb(symb);</span>
+<span class="nc" id="L35">        function.setResult_symbol(result_symbol);</span>
+<span class="nc" id="L36">        file_lines = function.OpenAndReadFile();</span>
+<span class="nc" id="L37">        result = function.Schitalka(file_lines);</span>
+<span class="nc" id="L38">        function.WriteAndCloseFile(result);</span>
+<span class="nc" id="L39">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

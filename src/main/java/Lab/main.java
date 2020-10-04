@@ -27,33 +27,7 @@ public class main {
         System.out.print("Input a symbol to result connection: ");
         result_symbol = sep.next();
         if (result_symbol.length() != 1){System.exit(0);}
-//        symbol = sep.next();
-//
-//        while(symbol.length()!= 1){
-//            System.out.println("Enter 1 symbol");
-//            symbol = sep.next();
-//        }
-//        if (symbol.length() == 1) {
-//            symb = symbol.charAt(0);
-//        }
-//
-//        System.out.println("Input result file path: ");
-//        result_file_name = sep.next();
-//        File file_2 = new File(result_file_name);
-//        if( !file_2.isFile()){
-//            System.out.print("Error! File not found!");
-//            System.exit(0);
-//        }
-//
-//        System.out.print("Input a symbol to result connection: ");
-//        result_symbol = sep.next();
-//        while(result_symbol.length()!=1){
-//            System.out.println("Enter 1 symbol");
-//            result_symbol = sep.next();
-//        }
-//        if (result_symbol.length() == 1) {
-//            end_symb = result_symbol.charAt(0);
-//        }
+
         Functional function = new Functional();
         function.setFile_name(file_name);
         function.setResult_file_name(result_file_name);

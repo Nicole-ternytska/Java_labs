@@ -27,29 +27,14 @@ public class Functional {
         this.symb = symb;
     }
 
-    public String getFile_name() {
-        return file_name;
-    }
-
     public String getResult_file_name() {
         return result_file_name;
     }
 
-    public String getResult_symbol() {
-        return result_symbol;
-    }
-
-    public char getSymb() {
-        return symb;
-    }
 
     public ArrayList<String> OpenAndReadFile(){
         ArrayList<String> file_lines = new ArrayList<>();
         File file = new File(file_name);
-        if( !file.isFile()){
-            System.out.print("Error! File not found!");
-            System.exit(0);
-        }
         try {
             BufferedReader filereader = new BufferedReader(new FileReader(file));
             String line = filereader.readLine();

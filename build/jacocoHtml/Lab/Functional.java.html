@@ -27,135 +27,120 @@ import java.util.ArrayList;
 <span class="fc" id="L27">        this.symb = symb;</span>
 <span class="fc" id="L28">    }</span>
 
-    public String getFile_name() {
-<span class="fc" id="L31">        return file_name;</span>
-    }
-
     public String getResult_file_name() {
-<span class="fc" id="L35">        return result_file_name;</span>
+<span class="fc" id="L31">        return result_file_name;</span>
     }
 
-    public String getResult_symbol() {
-<span class="fc" id="L39">        return result_symbol;</span>
-    }
-
-    public char getSymb() {
-<span class="fc" id="L43">        return symb;</span>
-    }
 
     public ArrayList&lt;String&gt; OpenAndReadFile(){
-<span class="fc" id="L47">        ArrayList&lt;String&gt; file_lines = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L48">        File file = new File(file_name);</span>
-<span class="pc bpc" id="L49" title="1 of 2 branches missed.">        if( !file.isFile()){</span>
-<span class="nc" id="L50">            System.out.print(&quot;Error! File not found!&quot;);</span>
-<span class="nc" id="L51">            System.exit(0);</span>
-        }
+<span class="fc" id="L36">        ArrayList&lt;String&gt; file_lines = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L37">        File file = new File(file_name);</span>
         try {
-<span class="fc" id="L54">            BufferedReader filereader = new BufferedReader(new FileReader(file));</span>
-<span class="fc" id="L55">            String line = filereader.readLine();</span>
-<span class="fc bfc" id="L56" title="All 2 branches covered.">            while(line!=null){</span>
-<span class="fc" id="L57">                file_lines.add(line);</span>
-<span class="fc" id="L58">                line = filereader.readLine();</span>
+<span class="fc" id="L39">            BufferedReader filereader = new BufferedReader(new FileReader(file));</span>
+<span class="fc" id="L40">            String line = filereader.readLine();</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">            while(line!=null){</span>
+<span class="fc" id="L42">                file_lines.add(line);</span>
+<span class="fc" id="L43">                line = filereader.readLine();</span>
             }
-<span class="fc" id="L60">            filereader.close();</span>
+<span class="fc" id="L45">            filereader.close();</span>
         }
-<span class="nc" id="L62">        catch (IOException exception){</span>
-<span class="nc" id="L63">            exception.printStackTrace();</span>
-<span class="fc" id="L64">        }</span>
-<span class="fc" id="L65">        return file_lines;</span>
+<span class="nc" id="L47">        catch (IOException exception){</span>
+<span class="nc" id="L48">            exception.printStackTrace();</span>
+<span class="fc" id="L49">        }</span>
+<span class="fc" id="L50">        return file_lines;</span>
     }
 
     public ArrayList&lt;String&gt; Schitalka (ArrayList&lt;String&gt; file_lines){
-<span class="fc" id="L69">        int count = 0;</span>
-<span class="fc" id="L70">        int firs_index = 0;</span>
-<span class="fc" id="L71">        int last_index = 0;</span>
-<span class="fc" id="L72">        int temp = 0;</span>
-<span class="fc" id="L73">        boolean quotes = false;</span>
-<span class="fc" id="L74">        boolean coment = false;</span>
-<span class="fc" id="L75">        String temporary_string = &quot;&quot;;</span>
+<span class="fc" id="L54">        int count = 0;</span>
+<span class="fc" id="L55">        int firs_index = 0;</span>
+<span class="fc" id="L56">        int last_index = 0;</span>
+<span class="fc" id="L57">        int temp = 0;</span>
+<span class="fc" id="L58">        boolean quotes = false;</span>
+<span class="fc" id="L59">        boolean coment = false;</span>
+<span class="fc" id="L60">        String temporary_string = &quot;&quot;;</span>
 
-<span class="fc" id="L77">        ArrayList&lt;Integer&gt; result = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L78">        ArrayList&lt;String&gt; result_result = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L62">        ArrayList&lt;Integer&gt; result = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L63">        ArrayList&lt;String&gt; result_result = new ArrayList&lt;&gt;();</span>
 
-<span class="fc bfc" id="L80" title="All 2 branches covered.">        for(int k = 0; k &lt; file_lines.size(); k++){</span>
-<span class="fc" id="L81">            char[] line_char = file_lines.get(k).toCharArray();</span>
-<span class="fc bfc" id="L82" title="All 2 branches covered.">            for (int i = 0; i&lt; line_char.length; i++){</span>
-<span class="fc bfc" id="L83" title="All 2 branches covered.">                if (!coment) {</span>
-<span class="pc bpc" id="L84" title="1 of 6 branches missed.">                    if((i&lt;line_char.length-1) &amp;&amp; ('/' == line_char[i] &amp;&amp; '*' == line_char[i+1])){</span>
-<span class="fc" id="L85">                        coment = true;</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        for(int k = 0; k &lt; file_lines.size(); k++){</span>
+<span class="fc" id="L66">            char[] line_char = file_lines.get(k).toCharArray();</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">            for (int i = 0; i&lt; line_char.length; i++){</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">                if (!coment) {</span>
+<span class="pc bpc" id="L69" title="1 of 6 branches missed.">                    if((i&lt;line_char.length-1) &amp;&amp; ('/' == line_char[i] &amp;&amp; '*' == line_char[i+1])){</span>
+<span class="fc" id="L70">                        coment = true;</span>
                     }
-<span class="pc bpc" id="L87" title="1 of 4 branches missed.">                    else if(('\&quot;'== line_char[i]) &amp;&amp; (count == 0)){</span>
-<span class="fc" id="L88">                        firs_index = i;</span>
-<span class="fc bfc" id="L89" title="All 2 branches covered.">                        for (int j = i+1; j&lt; (line_char.length); j++){</span>
-<span class="fc bfc" id="L90" title="All 2 branches covered.">                            if ('\&quot;'== line_char[j]){</span>
-<span class="fc" id="L91">                                last_index = j;</span>
-<span class="fc" id="L92">                                temp = temp + ((last_index-firs_index)-1);</span>
-<span class="fc" id="L93">                                quotes = true;</span>
-<span class="fc" id="L94">                                count = 0;</span>
-<span class="fc" id="L95">                                last_index = 0;</span>
-<span class="fc" id="L96">                                firs_index = 0;</span>
-<span class="fc" id="L97">                                i=j;</span>
-<span class="fc" id="L98">                                break;</span>
+<span class="pc bpc" id="L72" title="1 of 4 branches missed.">                    else if(('\&quot;'== line_char[i]) &amp;&amp; (count == 0)){</span>
+<span class="fc" id="L73">                        firs_index = i;</span>
+<span class="fc bfc" id="L74" title="All 2 branches covered.">                        for (int j = i+1; j&lt; (line_char.length); j++){</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">                            if ('\&quot;'== line_char[j]){</span>
+<span class="fc" id="L76">                                last_index = j;</span>
+<span class="fc" id="L77">                                temp = temp + ((last_index-firs_index)-1);</span>
+<span class="fc" id="L78">                                quotes = true;</span>
+<span class="fc" id="L79">                                count = 0;</span>
+<span class="fc" id="L80">                                last_index = 0;</span>
+<span class="fc" id="L81">                                firs_index = 0;</span>
+<span class="fc" id="L82">                                i=j;</span>
+<span class="fc" id="L83">                                break;</span>
                             }
                         }
-<span class="fc bfc" id="L101" title="All 2 branches covered.">                        if (!quotes){</span>
-<span class="fc" id="L102">                            count++;</span>
+<span class="fc bfc" id="L86" title="All 2 branches covered.">                        if (!quotes){</span>
+<span class="fc" id="L87">                            count++;</span>
                         }
                     }
-<span class="fc bfc" id="L105" title="All 2 branches covered.">                    else if (line_char[i] != symb){</span>
-<span class="fc" id="L106">                        count++;</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">                    else if (line_char[i] != symb){</span>
+<span class="fc" id="L91">                        count++;</span>
                     }
 
                     else{
-<span class="fc" id="L110">                        result.add(count+temp);</span>
-<span class="fc" id="L111">                        temp = 0;</span>
-<span class="fc" id="L112">                        count = 0;</span>
+<span class="fc" id="L95">                        result.add(count+temp);</span>
+<span class="fc" id="L96">                        temp = 0;</span>
+<span class="fc" id="L97">                        count = 0;</span>
                     }
-<span class="fc" id="L114">                    quotes=false;</span>
+<span class="fc" id="L99">                    quotes=false;</span>
                 }
                 else {
-<span class="fc bfc" id="L117" title="All 6 branches covered.">                    if((i&lt;line_char.length-1) &amp;&amp; ('*' == line_char[i] &amp;&amp; '/' == line_char[i+1])){</span>
-<span class="fc" id="L118">                        coment = false;</span>
-<span class="fc" id="L119">                        i++;</span>
+<span class="fc bfc" id="L102" title="All 6 branches covered.">                    if((i&lt;line_char.length-1) &amp;&amp; ('*' == line_char[i] &amp;&amp; '/' == line_char[i+1])){</span>
+<span class="fc" id="L103">                        coment = false;</span>
+<span class="fc" id="L104">                        i++;</span>
                     }
                 }
             }
-<span class="fc bfc" id="L123" title="All 2 branches covered.">            if (!coment){</span>
-<span class="fc" id="L124">                line_char = null;</span>
-<span class="fc" id="L125">                result.add(count+temp);</span>
-<span class="fc" id="L126">                count = 0;</span>
-<span class="fc" id="L127">                temp = 0;</span>
-<span class="fc bfc" id="L128" title="All 2 branches covered.">                for(int i = 0; i &lt; result.size(); i++){</span>
-<span class="fc" id="L129">                    temporary_string = temporary_string + Integer.toString(result.get(i));</span>
-<span class="fc bfc" id="L130" title="All 2 branches covered.">                    if(i == (result.size()-1)){</span>
-<span class="fc" id="L131">                        temporary_string = temporary_string+&quot;\n&quot;;</span>
+<span class="fc bfc" id="L108" title="All 2 branches covered.">            if (!coment){</span>
+<span class="fc" id="L109">                line_char = null;</span>
+<span class="fc" id="L110">                result.add(count+temp);</span>
+<span class="fc" id="L111">                count = 0;</span>
+<span class="fc" id="L112">                temp = 0;</span>
+<span class="fc bfc" id="L113" title="All 2 branches covered.">                for(int i = 0; i &lt; result.size(); i++){</span>
+<span class="fc" id="L114">                    temporary_string = temporary_string + Integer.toString(result.get(i));</span>
+<span class="fc bfc" id="L115" title="All 2 branches covered.">                    if(i == (result.size()-1)){</span>
+<span class="fc" id="L116">                        temporary_string = temporary_string+&quot;\n&quot;;</span>
                     }
                     else{
-<span class="fc" id="L134">                        temporary_string = temporary_string + result_symbol;</span>
+<span class="fc" id="L119">                        temporary_string = temporary_string + result_symbol;</span>
                     }
                 }
-<span class="fc" id="L137">                result_result.add(temporary_string);</span>
-<span class="fc" id="L138">                temporary_string = &quot;&quot;;</span>
-<span class="fc" id="L139">                result.clear();</span>
+<span class="fc" id="L122">                result_result.add(temporary_string);</span>
+<span class="fc" id="L123">                temporary_string = &quot;&quot;;</span>
+<span class="fc" id="L124">                result.clear();</span>
             }
             else{
-<span class="fc" id="L142">                line_char = null;</span>
+<span class="fc" id="L127">                line_char = null;</span>
             }
         }
-<span class="fc" id="L145">        return result_result;</span>
+<span class="fc" id="L130">        return result_result;</span>
     }
 
     public void WriteAndCloseFile(ArrayList&lt;String&gt; result_result){
-<span class="fc" id="L149">        try (FileWriter filewriter = new FileWriter(result_file_name)){</span>
-<span class="fc bfc" id="L150" title="All 2 branches covered.">            for (int i = 0; i &lt; result_result.size(); i++) {</span>
-<span class="fc" id="L151">                filewriter.write(result_result.get(i));</span>
+<span class="fc" id="L134">        try (FileWriter filewriter = new FileWriter(result_file_name)){</span>
+<span class="fc bfc" id="L135" title="All 2 branches covered.">            for (int i = 0; i &lt; result_result.size(); i++) {</span>
+<span class="fc" id="L136">                filewriter.write(result_result.get(i));</span>
                 //filewriter.append('\n');
             }
-<span class="fc" id="L154">            filewriter.flush();</span>
+<span class="fc" id="L139">            filewriter.flush();</span>
         }
-<span class="nc" id="L156">        catch(IOException exception){</span>
-<span class="nc" id="L157">            System.out.println(exception.getMessage());</span>
-<span class="fc" id="L158">        }</span>
-<span class="fc" id="L159">    }</span>
+<span class="nc" id="L141">        catch(IOException exception){</span>
+<span class="nc" id="L142">            System.out.println(exception.getMessage());</span>
+<span class="fc" id="L143">        }</span>
+<span class="fc" id="L144">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

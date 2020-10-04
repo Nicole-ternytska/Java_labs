@@ -1,4 +1,4 @@
-Lab/Functional.java
- Lab.Functional
 Lab/main.java
  Lab.main
+Lab/Functional.java
+ Lab.Functional
